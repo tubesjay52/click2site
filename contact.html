@@ -48,7 +48,7 @@
             <h2>Send Us a Message</h2>
 
             <!-- Formspree Form -->
-            <form class="contact-form" action="https://formspree.io/f/xvzbebjz" method="POST">
+            <form id="contactForm" class="contact-form" action="https://formspree.io/f/xvzbebjz" method="POST">
                 <input type="text" name="name" placeholder="Your Name" required>
                 <input type="email" name="email" placeholder="Your Email" required>
                 <input type="text" name="subject" placeholder="Subject" required>
@@ -103,7 +103,22 @@
         <p>&copy; 2026 GetClick2Site. All rights reserved.</p>
     </div>
 </footer>
+    <script>
+const form = document.getElementById('contactForm');
+
+form.addEventListener('submit', function(event) {
+    // Optional: prevent default submission if you want to handle async
+    // event.preventDefault();
+
+    // Wait a tiny moment so the form actually submits to Formspree
+    setTimeout(() => {
+        form.reset(); // This clears all input fields
+        alert('Thank you! Your message has been sent.'); // Optional: feedback
+    }, 100); // 100ms delay to allow form submission
+});
+</script>
 </body>
 
 </html>
+
 
